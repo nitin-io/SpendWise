@@ -1,0 +1,11 @@
+.transaction-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.transaction-card > .amount {
+  font-size: 1.2rem;
+  font-weight: 500;
+}

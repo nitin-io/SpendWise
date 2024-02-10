@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import "./layout.css";
 import Sidebar from "../components/Sidebar";
 import NavigationBtn from "../components/NavigationBtn";
+import TransactionCard from "../components/TransactionCard";
 
 const Layout = ({ children }) => {
   return (
@@ -17,6 +18,18 @@ const Layout = ({ children }) => {
       {children}
       <Sidebar side="right">
         <h2>YOUR TRANSACTION HISTORY</h2>
+        <TransactionCard
+          title="Recharge Of Jio Mobile"
+          amount={150}
+          timestamp={Date.now()}
+          credited={true}
+        />
+        <TransactionCard
+          title="Received Cashback"
+          amount={250}
+          timestamp={Date.now()}
+          credited={false}
+        />
       </Sidebar>
     </div>
   );
