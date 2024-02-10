@@ -22,13 +22,25 @@ const Layout = ({ children }) => {
           title="Recharge Of Jio Mobile"
           amount={150}
           timestamp={Date.now()}
+          credited={false}
+        />
+        <TransactionCard
+          title="Received Cashback"
+          amount={250}
+          timestamp={Date.now()}
           credited={true}
         />
         <TransactionCard
           title="Received Cashback"
           amount={250}
           timestamp={Date.now()}
-          credited={false}
+          credited={true}
+        />
+        <TransactionCard
+          title="Received Cashback"
+          amount={250}
+          timestamp={Date.now()}
+          credited={true}
         />
       </Sidebar>
     </div>

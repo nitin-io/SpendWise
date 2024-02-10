@@ -9,8 +9,9 @@ import {
   Tooltip,
   Legend,
   Line,
+  ResponsiveContainer,
 } from "recharts";
-import ExpenseCategoryCard from "../../components/ExpenseCategoryCard";
+import ExpenseCardsDiv from "../../components/ExpenseCardsDiv";
 
 const data = [
   {
@@ -61,33 +62,30 @@ const Home = () => {
   return (
     <Layout>
       <MainContainer>
-        <div className="expense-cards">
-          <ExpenseCategoryCard title="Shopping" totalExpense={12500} />
-          <ExpenseCategoryCard title="Food And Drinks" totalExpense={4000} />
-          <ExpenseCategoryCard title="Bill And Payments" totalExpense={2000} />
-          <ExpenseCategoryCard title="Entertainment" totalExpense={3000} />
-        </div>
-        <LineChart
-          width={730}
-          height={250}
-          data={data}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" tick={{ fill: "white" }} />
-          <YAxis tick={{ fill: "white" }} />
-          <Tooltip contentStyle={{ color: "white" }} />
-          <Legend
-            iconType="circle"
-            iconSize={10}
-            layout="horizontal"
-            verticalAlign="top"
-            align="center"
-            wrapperStyle={{ color: "white" }}
-          />
-          <Line type="monotone" dataKey="pv" stroke="#8884d8" />
-          <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-        </LineChart>
+        <ExpenseCardsDiv />
+        <ResponsiveContainer height="75%">
+          <LineChart
+            width={730}
+            height={250}
+            data={data}
+            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" tick={{ fill: "white" }} />
+            <YAxis tick={{ fill: "white" }} />
+            <Tooltip contentStyle={{ color: "white" }} />
+            <Legend
+              iconType="circle"
+              iconSize={10}
+              layout="horizontal"
+              verticalAlign="top"
+              align="center"
+              wrapperStyle={{ color: "white" }}
+            />
+            <Line type="monotone" dataKey="pv" stroke="#8884d8" />
+            <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+          </LineChart>
+        </ResponsiveContainer>
       </MainContainer>
     </Layout>
   );

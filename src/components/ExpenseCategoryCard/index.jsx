@@ -1,4 +1,4 @@
-import React from "react";
+import "./expenseCategoryCard.css";
 
 const style = {
   fontSize: "1.2rem",
@@ -11,10 +11,10 @@ const ExpenseCategoryCard = ({ title, totalExpense }) => {
   });
 
   return (
-    <div className="expense-card">
+    <span className="expense-card">
       <h3>{title}</h3>
       <div style={style}>{indianRupee.format(totalExpense)}</div>
-    </div>
+    </span>
   );
 };
 

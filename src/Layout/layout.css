@@ -1,24 +1,43 @@
 .layout {
   display: grid;
-  min-height: 90vh;
-  gap: 0.5rem;
+  min-height: 99dvh;
+  gap: 0.2rem;
   grid-template-areas:
     "navbar navbar navbar"
-    "leftSidebar mainContainer rightSidebar"
-    "leftSidebar mainContainer rightSidebar"
     "leftSidebar mainContainer rightSidebar";
+  grid-template-rows: 1fr auto;
+  grid-template-columns: auto 60% auto;
+}
+
+.layout > * {
+  border-radius: 8px;
 }
 
 .navbar {
   grid-area: navbar;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
-.sidebar .left {
+.nav-menu-icon {
+  display: none;
+  font-size: 2rem;
+}
+
+.sidebar.left {
   grid-area: leftSidebar;
+  z-index: 1;
 }
 
-.sidebar .right {
+.sidebar.right {
   grid-area: rightSidebar;
+}
+
+.sidebar.right > h2 {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 1rem;
 }
 
 .main-container {
@@ -28,5 +47,47 @@
 .navbar,
 .sidebar,
 .main-container {
-  background-color: #0008;
+  background-color: #0007;
+}
+
+@media screen and (width < 480px) {
+  .layout {
+    overflow: hidden;
+    grid-template-areas:
+      "navbar"
+      "mainContainer"
+      "rightSidebar"
+      "leftSidebar";
+    grid-template-columns: 395px;
+    margin-top: 9dvh;
+  }
+
+  .navbar {
+    padding: 1rem;
+    position: fixed;
+  }
+
+  .nav-menu-icon {
+    display: block;
+  }
+
+  .navbar > ul {
+    display: none;
+  }
+
+  .expense-card {
+    font-size: 0.8rem;
+  }
+
+  .sidebar.left {
+    display: none;
+    position: absolute;
+    border: 1px solid grey;
+    width: 100%;
+    margin: 10vh auto 0;
+  }
+
+  .sidebar.right > h2 {
+    text-align: center;
+  }
 }

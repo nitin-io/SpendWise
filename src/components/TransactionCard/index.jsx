@@ -7,7 +7,6 @@ const TransactionCard = ({ title, timestamp, amount, credited }) => {
     month: "short",
     year: "numeric",
   });
-  const timeStr = dateTimeStr.toLocaleTimeString("en-IN");
   const indianRupee = new Intl.NumberFormat("en-IN", {
     style: "currency",
     currency: "INR",
@@ -21,9 +20,7 @@ const TransactionCard = ({ title, timestamp, amount, credited }) => {
     <div className="transaction-card">
       <div>
         <h3>{title}</h3>
-        <span className="date-time">
-          {dateStr}, {timeStr}
-        </span>
+        <span className="date-time">{dateStr}</span>
       </div>
       <span className="amount" style={amountColor}>
         {credited ? "+" : "-"} {indianRupee.format(amount)}
