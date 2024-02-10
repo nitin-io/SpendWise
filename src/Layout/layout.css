@@ -1,0 +1,32 @@
+.layout {
+  display: grid;
+  min-height: 90vh;
+  gap: 0.5rem;
+  grid-template-areas:
+    "navbar navbar navbar"
+    "leftSidebar mainContainer rightSidebar"
+    "leftSidebar mainContainer rightSidebar"
+    "leftSidebar mainContainer rightSidebar";
+}
+
+.navbar {
+  grid-area: navbar;
+}
+
+.sidebar .left {
+  grid-area: leftSidebar;
+}
+
+.sidebar .right {
+  grid-area: rightSidebar;
+}
+
+.main-container {
+  grid-area: mainContainer;
+}
+
+.navbar,
+.sidebar,
+.main-container {
+  background-color: #0008;
+}

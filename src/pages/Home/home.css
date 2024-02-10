@@ -1,0 +1,13 @@
+.expense-cards {
+  display: flex;
+  height: 140px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.expense-cards > * {
+  border: 1px solid grey;
+  border-radius: 8px;
+  padding: 1rem;
+}
