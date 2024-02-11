@@ -4,8 +4,11 @@ import "./layout.css";
 import Sidebar from "../components/Sidebar";
 import NavigationBtn from "../components/NavigationBtn";
 import TransactionCard from "../components/TransactionCard";
+import { useSelector } from "react-redux";
 
 const Layout = ({ children }) => {
+  const { transactions } = useSelector((state) => state.expense);
+
   return (
     <div className="layout">
       <Navbar />
@@ -18,30 +21,16 @@ const Layout = ({ children }) => {
       {children}
       <Sidebar side="right">
         <h2>YOUR TRANSACTION HISTORY</h2>
-        <TransactionCard
-          title="Recharge Of Jio Mobile"
-          amount={150}
-          timestamp={Date.now()}
-          credited={false}
-        />
-        <TransactionCard
-          title="Received Cashback"
-          amount={250}
-          timestamp={Date.now()}
-          credited={true}
-        />
-        <TransactionCard
-          title="Received Cashback"
-          amount={250}
-          timestamp={Date.now()}
-          credited={true}
-        />
-        <TransactionCard
-          title="Received Cashback"
-          amount={250}
-          timestamp={Date.now()}
-          credited={true}
-        />
+        {transactions.map(
+          ({ id, description, amount, date, transactionType }) => (
+            <TransactionCard
+              title={description}
+              amount={amount}
+              timestamp={date}
+              type={transactionType}
+            />
+          )
+        )}
       </Sidebar>
     </div>
   );

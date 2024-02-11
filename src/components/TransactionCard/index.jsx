@@ -1,6 +1,6 @@
 import "./transactionCard.css";
 
-const TransactionCard = ({ title, timestamp, amount, credited }) => {
+const TransactionCard = ({ title, timestamp, amount, type }) => {
   const dateTimeStr = new Date(timestamp);
   const dateStr = dateTimeStr.toLocaleDateString("en-IN", {
     day: "2-digit",
@@ -13,7 +13,7 @@ const TransactionCard = ({ title, timestamp, amount, credited }) => {
   });
 
   const amountColor = {
-    color: credited ? "#A1EEBD" : "#FF6868",
+    color: type === "credit" ? "#A1EEBD" : "#FF6868",
   };
 
   return (
@@ -23,7 +23,7 @@ const TransactionCard = ({ title, timestamp, amount, credited }) => {
         <span className="date-time">{dateStr}</span>
       </div>
       <span className="amount" style={amountColor}>
-        {credited ? "+" : "-"} {indianRupee.format(amount)}
+        {type === "credit" ? "+" : "-"} {indianRupee.format(amount)}
       </span>
     </div>
   );

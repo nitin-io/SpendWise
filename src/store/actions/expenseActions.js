@@ -1,9 +1,8 @@
 // Action Creators
 
-export const logAnExpense = (expense) => {
-  return { type: "LOG_AN_EXPENSE", expense };
+export const logAnExpense = (transaction) => {
+  return { type: "LOG_TRANSACTION", transaction };
 };
-
-export const logCredits = (credit) => {
-  return { type: "LOG_CREDIT", credit };
+export const addCategory = (expense) => {
+  return { type: "ADD_CAT", expense };
 };

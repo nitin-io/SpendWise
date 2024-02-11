@@ -1,16 +1,16 @@
 import React from "react";
 import ExpenseCategoryCard from "../ExpenseCategoryCard";
+import { useSelector } from "react-redux";
 
 const ExpenseCardsDiv = () => {
+  const { categories } = useSelector((state) => state.expense);
   return (
     <div className="expense-cards">
-      <ExpenseCategoryCard title="Shopping" totalExpense={12500} />
-      <ExpenseCategoryCard title="Food And Drinks" totalExpense={4000} />
-      <ExpenseCategoryCard title="Bill And Payments" totalExpense={2000} />
-      <ExpenseCategoryCard title="Entertainment" totalExpense={3000} />
-      <ExpenseCategoryCard title="Entertainment" totalExpense={3000} />
-      <ExpenseCategoryCard title="Entertainment" totalExpense={3000} />
-      <ExpenseCategoryCard title="Entertainment" totalExpense={3000} />
+      {categories
+        .filter(({ expense }) => expense !== 0)
+        .map((cat) => (
+          <ExpenseCategoryCard title={cat.name} totalExpense={cat.expense} />
+        ))}
     </div>
   );
 };
