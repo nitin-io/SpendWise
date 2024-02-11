@@ -27,7 +27,6 @@
 
 .sidebar.left {
   grid-area: leftSidebar;
-  z-index: 1;
 }
 
 .sidebar.right {

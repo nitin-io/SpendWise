@@ -1,22 +1,44 @@
-import React from "react";
+import { useState } from "react";
 import "./navbar.css";
-import { Link } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
+import LogAnExpense from "../../pages/LogAnExpense";
+import LogCredit from "../../pages/LogCredit";
 
 const Navbar = () => {
+  const [isExpenseModalOpen, setIsExpenseModalOpen] = useState(false);
+  const [isCreditModalOpen, setIsCreditModalOpen] = useState(false);
+
   return (
-    <nav className="navbar">
-      <IoMenu className="nav-menu-icon" />
-      <div className="nav-title">SPENDWISE</div>
-      <ul className="nav-list">
-        <li>
-          <Link className="nav-link">LOG CREDITS</Link>
-        </li>
-        <li>
-          <Link className="nav-link">LOG AN EXPENSE</Link>
-        </li>
-      </ul>
-    </nav>
+    <>
+      <nav className="navbar">
+        <IoMenu className="nav-menu-icon" />
+        <div className="nav-title">SPENDWISE</div>
+        <ul className="nav-list">
+          <li>
+            <button
+              className="nav-button"
+              onClick={() => setIsCreditModalOpen(true)}
+            >
+              LOG CREDITS
+            </button>
+          </li>
+          <li>
+            <button
+              className="nav-button"
+              onClick={() => setIsExpenseModalOpen(true)}
+            >
+              LOG AN EXPENSE
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <LogAnExpense
+        isOpen={isExpenseModalOpen}
+        setIsOpen={setIsExpenseModalOpen}
+      />
+      <LogCredit isOpen={isCreditModalOpen} setIsOpen={setIsCreditModalOpen} />
+    </>
   );
 };
 

@@ -1,0 +1,58 @@
+.form-controller {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.form-controller > input,
+.form-controller > select {
+  font-size: 1rem;
+  padding: 5px;
+  border: none;
+  border-radius: 8px;
+  flex: 4;
+}
+
+.form-controller > label {
+  flex: 1;
+}
+
+.modal {
+  position: absolute;
+  backdrop-filter: blur(2px);
+  background-color: #0008;
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  place-content: center;
+  z-index: 1;
+}
+
+.modal > .container {
+  background-color: #0b0b0b;
+  padding: 1rem;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-radius: 8px;
+  border: 1px solid #fff;
+}
+
+.buttons {
+  align-self: flex-end;
+}
+
+.buttons > * {
+  background-color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.buttons > *:hover {
+  background-color: #e0e0e0;
+}
