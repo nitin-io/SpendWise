@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
       <Navbar />
       <Sidebar side="left">
         <NavigationBtn path="/" title="DASHBOARD" active={true} />
-        <NavigationBtn path="/bill-and-payments" title="BILLS & PAYMENTS" />
+        <NavigationBtn path="/bills-and-payments" title="BILLS & PAYMENTS" />
         <NavigationBtn path="/expenses" title="EXPENSES" />
         <NavigationBtn path="/stats" title="MY STATS" />
       </Sidebar>

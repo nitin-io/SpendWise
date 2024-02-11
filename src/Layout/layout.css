@@ -5,7 +5,7 @@
   grid-template-areas:
     "navbar navbar navbar"
     "leftSidebar mainContainer rightSidebar";
-  grid-template-rows: 1fr auto;
+  grid-template-rows: 12vh auto;
   grid-template-columns: auto 60% auto;
 }
 
